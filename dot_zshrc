@@ -128,10 +128,10 @@ if [ ! -d "$HOME/.local/opt" ] ; then
     mkdir -p $HOME/.local/opt
 fi
 
-# BIN 
+g# BIN 
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.local/opt/apache-maven/bin:$PATH
-PATH=$HOME/.local/opt/java/java11/bin:$PATH
+PATH=$HOME/.local/opt/java11/bin:$PATH
 
 # ENV
 export JAVA_HOME=$HOME/.local/opt/java11
@@ -144,4 +144,3 @@ autoload -Uz $fpath[1]/*(.:t)
 prompt_context(){
   prompt_segment black default
 }
-
