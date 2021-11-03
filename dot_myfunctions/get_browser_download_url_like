@@ -1,0 +1,1 @@
+download_url=$(curl -sL https://api.github.com/repos/$1/$2/releases/latest | jq -r --arg ASSETNAME "$3" '.assets[] | select(.name|contains($ASSETNAME)) | .browser_download_url')

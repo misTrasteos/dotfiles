@@ -1,0 +1,8 @@
+  wget -P /tmp/ $1
+  mkdir -p /tmp/$(echo $1 | md5sum | head -c 10)
+  tar -zvxf /tmp/$(basename $1) -C /tmp/$(echo $1 | md5sum | head -c 10)
+
+  install /tmp/$(echo $1 | md5sum | head -c 10)/$2 $3
+
+  rm /tmp/$(basename $1)
+  rm -rf /tmp/$(echo $1 | md5sum | head -c 10)

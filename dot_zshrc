@@ -62,6 +62,7 @@ ZSH_THEME="agnoster"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -121,6 +122,18 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# BIN 
+PATH=/opt/apache-maven/apache-maven-3.8.3/bin:$PATH
+PATH=/opt/java/java11/bin:$PATH
+
+# ENV
+export JAVA_HOME=/opt/java/java11
+export EDITOR=vim
+
+# Functions
+fpath=( ~/.myfunctions "${fpath[@]}" )
+autoload -Uz $fpath[1]/*(.:t)
 
 prompt_context(){
   prompt_segment black default

@@ -1,0 +1,28 @@
+dest_folder=~/.local/bin
+
+for arg in "$@"
+do
+    echo "Installing" $arg
+    case $arg in
+    kind)
+        get_browser_download_url "kubernetes-sigs" "kind" "kind-linux-amd64"
+        download_and_copy $download_url kind $dest_folder
+        ;;
+    skaffold)
+        get_browser_download_url "GoogleContainerTools" "skaffold" "skaffold-linux-amd64" 
+        download_and_copy $download_url skaffold $dest_folder
+        ;;
+    kubectl)
+        stable_version=$(curl -L -s https://dl.k8s.io/release/stable.txt)
+        download_url=https://dl.k8s.io/release/$stable_version/bin/linux/amd64/kubectl
+        download_and_copy $download_url kubectl $dest_folder
+        ;;
+    dive)
+        get_browser_download_url_like "wagoodman" "dive" "linux_amd64.tar.gz"
+        download_and_uncompress_and_copy $download_url "dive" $dest_folder
+        ;;
+    *)
+        echo "I know nothing about" $arg
+        ;;
+    esac
+done
