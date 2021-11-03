@@ -1,0 +1,3 @@
+# $1 version
+get_browser_download_url_regexp "adoptium" "temurin$1-binaries" "OpenJDK$1U-jdk_x64_linux_hotspot.*gz$"
+download_uncompress_mv_directory $download_url ~/.local/opt/java$1

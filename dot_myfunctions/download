@@ -1,7 +1,7 @@
 dest_folder=~/.local/bin
 
-for arg in "$@"
-do
+#for arg in "$@"
+#do
     echo "Installing" $arg
     case $arg in
     kind)
@@ -21,8 +21,20 @@ do
         get_browser_download_url_like "wagoodman" "dive" "linux_amd64.tar.gz"
         download_and_uncompress_and_copy $download_url "dive" $dest_folder
         ;;
+    java8)
+        download_jdk 8
+        ;;
+    java11)
+        download_jdk 11
+        ;;
+    java17)
+        download_jdk 17
+        ;;
+    mvn)
+        download_mvn $2
+        ;;
     *)
         echo "I know nothing about" $arg
         ;;
     esac
-done
+#done

@@ -1,0 +1,1 @@
+download_url=$(curl -sL https://api.github.com/repos/$1/$2/releases/latest | jq -r --arg REGULAREXPRESION "$3" '.assets[] | select(.name|test($REGULAREXPRESION)) | .browser_download_url')

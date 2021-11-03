@@ -1,0 +1,15 @@
+# $1 download url
+# $2 dest, ~/.local/opt/java11
+
+hash=/tmp/$(echo $1 | md5sum | head -c 10)
+filename=$(basename $1)
+
+wget -P /tmp/ $1
+mkdir -p /tmp/$hash
+tar -zvxf /tmp/$filename -C /tmp/$hash
+mkdir -p ~/.local/opt
+rm -rf /$2
+mv /tmp/$hash/$(ls /tmp/$hash) $2
+
+rm -rf /tmp/$hash
+rm /tmp/$filename
