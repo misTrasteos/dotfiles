@@ -104,7 +104,25 @@ source $ZSH/oh-my-zsh.sh
 
 ## alias ##
 alias g="git"
+alias c="chezmoi"
+alias k="kubectl"
+
+## completion ##
+source <(kubectl completion zsh)
+source <(chezmoi completion zsh)
+
+## stuff ##
+# create my local bin if it does not exists yet
+if [ ! -d "$HOME/.local/bin" ] ; then
+    mkdir -p $HOME/.local/bin
+fi
+
+# include my local bin in PATH
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 prompt_context(){
   prompt_segment black default
 }
+
