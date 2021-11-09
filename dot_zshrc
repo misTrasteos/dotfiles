@@ -108,10 +108,6 @@ alias g="git"
 alias c="chezmoi"
 alias k="kubectl"
 
-## completion ##
-source <(kubectl completion zsh)
-source <(chezmoi completion zsh)
-
 ## stuff ##
 # create my local bin if it does not exists yet
 if [ ! -d "$HOME/.local/bin" ] ; then
@@ -128,7 +124,7 @@ if [ ! -d "$HOME/.local/opt" ] ; then
     mkdir -p $HOME/.local/opt
 fi
 
-g# BIN 
+# BIN
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.local/opt/apache-maven/bin:$PATH
 PATH=$HOME/.local/opt/java11/bin:$PATH
@@ -136,6 +132,10 @@ PATH=$HOME/.local/opt/java11/bin:$PATH
 # ENV
 export JAVA_HOME=$HOME/.local/opt/java11
 export EDITOR=vim
+
+## completion ##
+source <(kubectl completion zsh)
+source <(chezmoi completion zsh)
 
 # Functions
 fpath=( ~/.myfunctions "${fpath[@]}" )
