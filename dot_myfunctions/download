@@ -38,6 +38,9 @@ dest_folder=~/.local/bin
     mvnd)
         download_mvnd
         ;;
+    jbang)
+        download_jbang
+        ;;
     *)
         echo "I know nothing about" $arg
         ;;
