@@ -35,6 +35,9 @@ dest_folder=~/.local/bin
     mvn)
         download_mvn $2
         ;;
+    mvnd)
+        download_mvnd
+        ;;
     *)
         echo "I know nothing about" $arg
         ;;

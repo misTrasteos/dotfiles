@@ -6,7 +6,15 @@ filename=$(basename $1)
 
 wget -P /tmp/ $1
 mkdir -p /tmp/$hash
-tar -zvxf /tmp/$filename -C /tmp/$hash
+
+if [[ $filename =~ "tar\.gz$" ]] ; then
+    tar -zvxf /tmp/$filename -C /tmp/$hash
+fi
+
+if [[ $filename =~ "zip$" ]] ; then
+    unzip /tmp/$filename -d /tmp/$hash
+fi
+
 mkdir -p ~/.local/opt
 rm -rf /$2
 mv /tmp/$hash/$(ls /tmp/$hash) $2

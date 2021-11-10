@@ -1,8 +1,14 @@
-  wget -P /tmp/ $1
-  mkdir -p /tmp/$(echo $1 | md5sum | head -c 10)
+wget -P /tmp/ $1
+mkdir -p /tmp/$(echo $1 | md5sum | head -c 10)
+
+# create my local /opt
+if [ ! -d "$HOME/.local/opt" ] ; then
   tar -zvxf /tmp/$(basename $1) -C /tmp/$(echo $1 | md5sum | head -c 10)
+else
 
-  install /tmp/$(echo $1 | md5sum | head -c 10)/$2 $3
+fi
 
-  rm /tmp/$(basename $1)
-  rm -rf /tmp/$(echo $1 | md5sum | head -c 10)
+install /tmp/$(echo $1 | md5sum | head -c 10)/$2 $3
+
+rm /tmp/$(basename $1)
+rm -rf /tmp/$(echo $1 | md5sum | head -c 10)
