@@ -1,0 +1,2 @@
+get_browser_download_url_regexp "mvndaemon" "mvnd" "mvnd-.*linux-amd64.zip$"
+download_uncompress_mv_directory $download_url ~/.local/opt/mvnd

@@ -127,6 +127,7 @@ fi
 # BIN
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.local/opt/apache-maven/bin:$PATH
+PATH=$HOME/.local/opt/mvnd/bin:$PATH
 PATH=$HOME/.local/opt/java11/bin:$PATH
 
 # ENV
