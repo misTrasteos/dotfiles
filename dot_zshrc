@@ -133,6 +133,7 @@ PATH=$HOME/.local/opt/mvnd/bin:$PATH
 PATH=$HOME/.local/opt/java11/bin:$PATH
 PATH=$HOME/.local/opt/jbang/bin:$PATH
 PATH=$HOME/.local/opt/exa/bin:$PATH
+PATH=$HOME/.local/opt/vegeta:$PATH
 
 # ENV
 export JAVA_HOME=$HOME/.local/opt/java11

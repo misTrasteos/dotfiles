@@ -44,6 +44,9 @@ dest_folder=~/.local/bin
     exa)
         download_exa
         ;;
+    vegeta)
+        download_vegeta
+        ;;        
     *)
         echo "I know nothing about" $arg
         ;;
