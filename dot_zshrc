@@ -102,11 +102,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 ## alias ##
 alias g="git"
 alias c="chezmoi"
 alias k="kubectl"
+alias j="jbang"
+
+alias ls="exa --icons --group"
 
 ## stuff ##
 # create my local bin if it does not exists yet
@@ -130,6 +132,7 @@ PATH=$HOME/.local/opt/apache-maven/bin:$PATH
 PATH=$HOME/.local/opt/mvnd/bin:$PATH
 PATH=$HOME/.local/opt/java11/bin:$PATH
 PATH=$HOME/.local/opt/jbang/bin:$PATH
+PATH=$HOME/.local/opt/exa/bin:$PATH
 
 # ENV
 export JAVA_HOME=$HOME/.local/opt/java11
