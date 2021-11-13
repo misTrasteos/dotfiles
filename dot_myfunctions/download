@@ -41,6 +41,9 @@ dest_folder=~/.local/bin
     jbang)
         download_jbang
         ;;
+    exa)
+        download_exa
+        ;;
     *)
         echo "I know nothing about" $arg
         ;;

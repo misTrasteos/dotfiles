@@ -15,9 +15,22 @@ if [[ $filename =~ "zip$" ]] ; then
     unzip /tmp/$filename -d /tmp/$hash
 fi
 
-mkdir -p ~/.local/opt
-rm -rf /$2
-mv /tmp/$hash/$(ls /tmp/$hash) $2
+folderornotfolder=$(find /tmp/$hash -maxdepth 1 | wc -l)
 
+# ensure dest exists
+if [ ! -d "$HOME/.local/opt" ] ; then
+    mkdir -p $HOME/.local/opt
+fi
+
+rm -rf $2
+
+#if [[ -z $3 ]] ; then
+if [ $folderornotfolder -ne "2" ] ; then
+    mv /tmp/$hash $2
+else
+    mv /tmp/$hash/$(ls /tmp/$hash) $2
+fi
+
+# clean everything
 rm -rf /tmp/$hash
-rm /tmp/$filename
+rm -f /tmp/$filename
