@@ -108,7 +108,7 @@ alias c="chezmoi"
 alias k="kubectl"
 alias j="jbang"
 
-alias ls="exa --icons --group"
+alias ls="exa --icons --group --git"
 
 ## stuff ##
 # create my local bin if it does not exists yet
